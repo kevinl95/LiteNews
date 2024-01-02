@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
   // Get current URL
   var current = window.location.href;
   const url = new URL('', current);
-  console.log(url.hostname);
   switch (url.hostname) {
     case "www.cnn.com":
         window.location.replace("https://lite.cnn.com" + url.pathname)
@@ -20,10 +19,14 @@ window.addEventListener("load", () => {
         window.location.replace("https://www.dailymail.co.uk/textbased" + url.pathname)
         break;
     case "www.csmonitor.com":
-        window.location.replace("https://www.csmonitor.com/text_edition" + url.pathname)
+        if (!url.pathname.includes("text_edition")) {
+            window.location.replace("https://www.csmonitor.com/text_edition" + url.pathname)
+        }
         break;
     case "www.cbc.ca":
-        window.location.replace("https://www.cbc.ca/lite" + url.pathname)
+        if (!url.pathname.includes("lite")) {
+            window.location.replace("https://www.cbc.ca/lite" + url.pathname)
+        }
         break;
     case "www.pbs.org":
         window.location.replace("https://lite.pbs.org/" + url.pathname)
