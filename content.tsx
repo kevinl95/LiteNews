@@ -7,14 +7,16 @@ export const config: PlasmoCSConfig = {
   matches: ["https://www.cnn.com/*", "https://www.npr.org/*", "https://www.dailymail.co.uk/*", "https://www.csmonitor.com/*", "https://www.pbs.org/*", "https://www.cbc.ca/*"]
 }
 
-window.addEventListener("load", () => {
-  // Get current URL
+async function redirect() {
+    // Get current URL
   var current = window.location.href;
   const url = new URL('', current);
   const components = url.pathname.split('/');
   var video = components.includes("video");
   var player = components.includes("player");
-  if (!video && !player) {
+  const storage = new Storage()
+  const redirectEnabled = await storage.get("enabled")
+  if (!video && !player && redirectEnabled) {
     switch (url.hostname) {
         case "www.cnn.com":
             window.location.replace("https://lite.cnn.com" + url.pathname)
@@ -40,4 +42,6 @@ window.addEventListener("load", () => {
             break;
     }
   }
-})
+}
+
+window.addEventListener("load", () => redirect(), false)

@@ -8,7 +8,6 @@ async function handleEnable() {
   const storage = new Storage()
   const data = await storage.get("enabled")
   await storage.set("enabled", !data)
-  //window.location.reload();
 }
 
 function IndexPopup() {
@@ -16,9 +15,9 @@ function IndexPopup() {
   const [enabled] = useStorage<boolean>("enabled", (redirectEnabled) =>
     typeof redirectEnabled === "undefined" ? true : redirectEnabled
   )
-  var enabledStr = "Currently enabled"
+  var enabledStr = "Currently redirecting news pages"
   if (!enabled) {
-    enabledStr = "Currently disabled"
+    enabledStr = "Not redirecting news pages"
   }
 
 
@@ -35,7 +34,7 @@ function IndexPopup() {
         id='enable-status'
         checked={enabled}
         onChange={handleEnable} />
-      <label htmlFor='enable-status'>Enable LiteNews</label>
+      <label htmlFor='enable-status'>Redirect News Pages</label>
     </div>
   )
 }
