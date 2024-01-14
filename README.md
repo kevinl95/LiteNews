@@ -2,7 +2,7 @@
 
 ![Lite News logo consisting of the text Lite News under a newspaper](LITENEWS.png)
 
-Cross-browser extension for redirecting you to the lite, text-only versions of news sites if available. This currently works for:
+Cross-browser extension for redirecting you to the lite, text-only versions of news sites if available. This is useful if you are on a low-bandwidth connection or just want your news to load faster! This currently works for:
 
 - CNN
 - NPR
@@ -11,7 +11,14 @@ Cross-browser extension for redirecting you to the lite, text-only versions of n
 - CBC
 - PBS
 
-## Getting Started
+## How to Use
+
+Navigating to pages hosted by one of the above publishers will redirect you to the "lite" version of that page, if available. Visual content such as video players will be displayed like normal.
+
+You can disable redirection at any time by selecting the extension from the extension menu in your browser and toggling "Redirect News Pages" to off.
+
+## Development
+### Getting Started
 
 First, run the development server:
 
@@ -21,9 +28,9 @@ pnpm dev
 npm run dev
 ```
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+Open your browser and load the appropriate development build. For example, if you are developing for Chrome using manifest v3 use: `build/chrome-mv3-dev`.
 
-## Making production build
+### Making a production build
 
 Run the following:
 

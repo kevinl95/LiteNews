@@ -8,7 +8,7 @@ export const config: PlasmoCSConfig = {
 }
 
 async function redirect() {
-    // Get current URL
+  // Get current URL
   var current = window.location.href;
   const url = new URL('', current);
   const components = url.pathname.split('/');
