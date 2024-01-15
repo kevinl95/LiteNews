@@ -4,7 +4,8 @@ import { Storage } from "@plasmohq/storage"
 const storage = new Storage()
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://www.cnn.com/*", "https://www.npr.org/*", "https://www.dailymail.co.uk/*", "https://www.csmonitor.com/*", "https://www.pbs.org/*", "https://www.cbc.ca/*"]
+  matches: ["https://www.cnn.com/*", "https://www.npr.org/*", "https://www.dailymail.co.uk/*", "https://www.csmonitor.com/*", "https://www.cbc.ca/*"],
+  run_at: "document_start"
 }
 
 async function redirect() {
@@ -14,9 +15,11 @@ async function redirect() {
   const components = url.pathname.split('/');
   var video = components.includes("video");
   var player = components.includes("player");
+  var webview = components.includes("webview");
+  var live = components.includes("liven-news")
   const storage = new Storage()
   const redirectEnabled = await storage.get("enabled")
-  if (!video && !player && redirectEnabled) {
+  if (!video && !player && !webview && !live && redirectEnabled) {
     switch (url.hostname) {
         case "www.cnn.com":
             window.location.replace("https://lite.cnn.com" + url.pathname)
@@ -25,7 +28,9 @@ async function redirect() {
             window.location.replace("https://text.npr.org" + url.pathname)
             break;
         case "www.dailymail.co.uk":
-            window.location.replace("https://www.dailymail.co.uk/textbased" + url.pathname)
+            if (!url.pathname.includes("textbased")) {
+                window.location.replace("https://www.dailymail.co.uk/textbased" + url.pathname.replace("article-", 'text-'))
+            }
             break;
         case "www.csmonitor.com":
             if (!url.pathname.includes("text_edition")) {
@@ -34,11 +39,9 @@ async function redirect() {
             break;
         case "www.cbc.ca":
             if (!url.pathname.includes("lite")) {
-                window.location.replace("https://www.cbc.ca/lite" + url.pathname)
+                var story = url.pathname.split("-")
+                window.location.replace("https://www.cbc.ca/lite/story/" + story.pop())
             }
-            break;
-        case "www.pbs.org":
-            window.location.replace("https://lite.pbs.org/" + url.pathname)
             break;
     }
   }

@@ -9,7 +9,6 @@ Cross-browser extension for redirecting you to the lite, text-only versions of n
 - Daily Mail
 - Christian Science Monitor
 - CBC
-- PBS
 
 ## How to Use
 
