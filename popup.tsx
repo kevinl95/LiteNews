@@ -12,9 +12,8 @@ async function handleEnable() {
 
 function IndexPopup() {
   const [data, setData] = useState("")
-  const [enabled] = useStorage<boolean>("enabled", (redirectEnabled) =>
-    typeof redirectEnabled === "undefined" ? true : redirectEnabled
-  )
+  // Enabled by default
+  const [enabled, setEnabled] = useStorage("enabled", (v) => v === undefined ? true: v)
   var enabledStr = "Currently redirecting news pages"
   if (!enabled) {
     enabledStr = "Not redirecting news pages"
