@@ -1,17 +1,17 @@
 {
   "name": "lite-news",
-  "displayName": "Lite news",
-  "version": "0.0.1",
+  "displayName": "LiteNews",
+  "version": "0.0.2",
   "description": "Automatically redirect news articles to their publisher's lite version if available",
   "author": "Kevin Loeffler",
   "scripts": {
-    "dev": "plasmo dev",
-    "build": "plasmo build",
+    "dev": "plasmo dev --target=firefox-mv2",
+    "build": "plasmo build --zip --target=firefox-mv2",
     "test": "plasmo test"
   },
   "dependencies": {
     "@plasmohq/storage": "^1.9.0",
-    "plasmo": "0.84.0",
+    "plasmo": "^0.84.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-toggle": "^4.1.3"
@@ -27,11 +27,15 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "https://cnn.com/*",
+      "https://www.npr.org/*",
+      "https://www.dailymail.co.uk/*",
+      "https://www.csmonitor.com/*",
+      "https://www.cbc.ca/*"
     ],
     "browser_specific_settings": {
       "gecko": {
-        "id": "newslite@kevinloeffler.com"
+        "id": "newslite@kevinmloeffler.com"
       }
     }
   }
