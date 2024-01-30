@@ -2,7 +2,7 @@
 
 ![Lite News logo consisting of the text Lite News under a newspaper](LITENEWS.png)
 
-[![Get the add-on for Firefox](https://extensionworkshop.com/assets/img/documentation/publish/get-the-addon-178x60px.dad84b42.png)](https://addons.mozilla.org/en-US/firefox/addon/litenews/)[![Get the add-on for Google Chrome](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png)](https://chromewebstore.google.com/detail/litenews/ddpeehpgbiodbpiogjghndlohokekjej)
+[![Get the add-on for Firefox](https://extensionworkshop.com/assets/img/documentation/publish/get-the-addon-178x60px.dad84b42.png)](https://addons.mozilla.org/en-US/firefox/addon/litenews/)[![Get the add-on for Google Chrome](https://developer.chrome.com/static/docs/webstore/branding/image/206x58-chrome-web-bcb82d15b2486.png)](https://chromewebstore.google.com/detail/litenews/ddpeehpgbiodbpiogjghndlohokekjej)[![Get the add-on for Microsoft Edge](https://user-images.githubusercontent.com/78568641/212470539-dd4d22a0-3af8-4fa7-9671-6df5b2e26a70.png)](https://microsoftedge.microsoft.com/addons/detail/litenews/lkidlihdbfflcogkjilcbbodmhnjpfbn)
 
 Cross-browser extension for redirecting you to the lite, text-only versions of news sites if available. This is useful if you are on a low-bandwidth connection or just want your news to load faster! This currently works for:
 
